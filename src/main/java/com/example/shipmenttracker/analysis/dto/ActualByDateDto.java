@@ -1,21 +1,21 @@
 package com.example.shipmenttracker.analysis.dto;
 
-import com.example.shipmenttracker.customer.model.Customer;
-import com.example.shipmenttracker.product.model.Product;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDate;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class ActualByDateDto {
 
     private LocalDate date;
-    private Product product;
-    private Customer customer;
+    private Long productId;
+    private Long customerId;
     private String chainName;
     private Long volume;
     private Double salesValue;

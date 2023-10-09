@@ -1,5 +1,6 @@
 package com.example.shipmenttracker.analysis.controller;
 
+import com.example.shipmenttracker.analysis.dto.ActualByDateDto;
 import com.example.shipmenttracker.analysis.dto.ActualByMonthDto;
 import com.example.shipmenttracker.analysis.service.AnalysisService;
 import lombok.RequiredArgsConstructor;
@@ -19,10 +20,19 @@ public class Analysis {
 
     private final AnalysisService service;
 
-    @GetMapping("/months")
+    @GetMapping("/month")
     List<ActualByMonthDto> getByMonth(@RequestParam(defaultValue = "0") int from,
                                       @RequestParam(defaultValue = "20") int size) {
-        log.info("Получен запрос GET /analysis/months");
+        log.info("Получен запрос GET /analysis/month");
         return service.getByMonth(from, size);
+    }
+
+    @GetMapping("/date")
+    List<ActualByDateDto> getByDate(@RequestParam(required = false) List<Long> chains,
+                                    @RequestParam(required = false) List<Long> products,
+                                    @RequestParam(defaultValue = "0") int from,
+                                    @RequestParam(defaultValue = "20") int size) {
+        log.info("Получен запрос GET /analysis/date");
+        return service.getByDate(chains, products, from, size);
     }
 }

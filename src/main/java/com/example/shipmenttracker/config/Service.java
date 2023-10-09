@@ -111,7 +111,7 @@ public class Service {
                     Double salesValue = Double.parseDouble(arr[5]);
                     Double price = priceRepository.findPriceByChainIdAndProductId(chain.getId(), product.getId()).getRegularPricePerUnit();
                     Actual actual = new Actual(null, date, product, customer, chain, volume, salesValue,
-                            price < salesValue/volume ? true : false);
+                            price < salesValue / volume);
                     actuals.add(actual);
                 }
             }

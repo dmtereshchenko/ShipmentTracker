@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS price (
 
 CREATE TABLE IF NOT EXISTS actual (
     id          BIGINT                      GENERATED       BY DEFAULT AS IDENTITY NOT NULL,
-    date        TIMESTAMP                   NOT NULL,
+    date        date                        NOT NULL,
     product_id  BIGINT                      NOT NULL        REFERENCES product (id),
     customer_id BIGINT                      NOT NULL        REFERENCES customer (id),
     chain_id    BIGINT                      NOT NULL        REFERENCES chain (id),
